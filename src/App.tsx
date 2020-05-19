@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { useSelector } from 'react-redux'
+import { getUsers } from './redux/actions/users'
+import { useFetching } from './hooks/useFetch'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+	useFetching(getUsers)
+	const users = useSelector((state: any) => state.user.users)
+
+	return (
+		<div className="app">
+			{users.map((user: any) => {
+				return (
+					<div key={user.id}>
+						{user.id}.{user.login}
+					</div>
+				)
+			})}
+		</div>
+	)
 }
 
-export default App;
+export default App
