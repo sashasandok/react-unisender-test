@@ -1,13 +1,14 @@
 import { handleActions } from 'redux-actions'
-import getActions from '../actions/users'
+import actions from '../actions/users'
 
 export const initialState = {
 	users: [],
+	user: {},
 }
 
 export default handleActions<any>(
 	{
-		[getActions.request]: (state: any) => {
+		[actions.get.request]: (state: any) => {
 			return {
 				...state,
 				isFetching: true,
@@ -15,7 +16,7 @@ export default handleActions<any>(
 			}
 		},
 
-		[getActions.complete]: (state: any, { payload }: any) => {
+		[actions.get.complete]: (state: any, { payload }: any) => {
 			return {
 				...state,
 				isFetching: false,
@@ -23,7 +24,31 @@ export default handleActions<any>(
 			}
 		},
 
-		[getActions.error]: (state: any, { payload }: any) => {
+		[actions.get.error]: (state: any, { payload }: any) => {
+			return {
+				...state,
+				isFetching: false,
+				error: payload.error,
+			}
+		},
+
+		[actions.getByName.request]: (state: any) => {
+			return {
+				...state,
+				isFetching: true,
+				error: '',
+			}
+		},
+
+		[actions.getByName.complete]: (state: any, { payload }: any) => {
+			return {
+				...state,
+				isFetching: false,
+				user: payload.user,
+			}
+		},
+
+		[actions.getByName.error]: (state: any, { payload }: any) => {
 			return {
 				...state,
 				isFetching: false,

@@ -9,9 +9,10 @@ import { logger } from 'redux-logger'
 import { Provider } from 'react-redux'
 import reducers from './redux/reducers'
 // components
-import App from './App'
+import App from './pages/App'
 // styles
 import './index.css'
+import 'semantic-ui-css/semantic.min.css'
 
 declare global {
 	interface Window {

@@ -1,0 +1,37 @@
+import { MapperDetailedUserData } from '../interfaces'
+
+export default (user: MapperDetailedUserData) => {
+	return {
+		login: user.login,
+		id: user.id,
+		nodeId: user.node_id,
+		avatarUrl: user.avatar_url,
+		gravatarId: user.gravatar_id,
+		url: user.url,
+		htmlUrl: user.html_url,
+		followersUrl: user.followers_url,
+		followingUrl: user.following_url,
+		gistsUrl: user.gists_url,
+		starredUrl: user.starred_url,
+		subscriptionsUrl: user.subscriptions_url,
+		organizationsUrl: user.organizations_url,
+		reposUrl: user.repos_url,
+		eventsUrl: user.events_url,
+		receivedEventsUrl: user.received_events_url,
+		type: user.type,
+		siteAdmin: user.site_admin,
+		name: user.name,
+		company: user.company,
+		blog: user.blog,
+		location: user.location,
+		email: user.email,
+		hireable: user.hireable,
+		bio: user.bio,
+		publicRepos: user.public_repos,
+		publicGists: user.public_gists,
+		followers: user.followers,
+		following: user.following,
+		createdAt: user.created_at,
+		updatedAt: user.updated_at,
+	}
+}

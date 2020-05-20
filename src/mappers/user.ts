@@ -1,4 +1,6 @@
-export default (user: UserData) => {
+import { MapperUserData } from '../interfaces'
+
+export default (user: MapperUserData) => {
 	return {
 		id: user.id,
 		avatarUrl: user.avatar_url,
@@ -19,25 +21,4 @@ export default (user: UserData) => {
 		type: user.type,
 		url: user.url,
 	}
-}
-
-interface UserData {
-	id: Number
-	avatar_url: String
-	events_url: String
-	followers_url: String
-	following_url: String
-	gravatar_id: String
-	gists_url: String
-	html_url: String
-	login: String
-	node_id: String
-	organizations_url: String
-	received_events_url: String
-	repos_url: String
-	site_admin: Boolean
-	starred_url: String
-	subscriptions_url: String
-	type: String
-	url: String
 }
