@@ -2,6 +2,9 @@ import { createActions } from 'redux-actions'
 import apiData from '../../api/user'
 import userMapper from '../../mappers/user'
 import userDetailedMapper from '../../mappers/detailedUser'
+import { divideToPages } from '../../utils/paging'
+
+export const PAGE_COUNT = 5
 
 const actions = createActions<any>({
 	get: {
@@ -14,6 +17,7 @@ const actions = createActions<any>({
 		complete: (x) => x,
 		error: (x) => x,
 	},
+	setPage: (x) => x,
 }) as any
 
 export default actions
@@ -24,10 +28,11 @@ export const getUsers = () => async (dispatch: any) => {
 	try {
 		const data = await apiData.getUsers()
 		const users = data.map(userMapper)
+		const pages = divideToPages(users, PAGE_COUNT)
 
 		dispatch(
 			actions.get.complete({
-				users,
+				users: pages,
 			}),
 		)
 	} catch (e) {
@@ -52,4 +57,8 @@ export const getUserByName = (name: string) => async (dispatch: any) => {
 		console.log(e)
 		dispatch(actions.getByName.error(e.message))
 	}
+}
+
+export const setPage = ({ page }: any) => async (dispatch: any) => {
+	dispatch(actions.setPage({ page }))
 }

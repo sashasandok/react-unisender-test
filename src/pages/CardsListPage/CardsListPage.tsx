@@ -1,14 +1,32 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getUsers } from '../../redux/actions/users'
+import { getUsers, setPage } from '../../redux/actions/users'
 import { useFetch } from '../../hooks/useFetch'
+import { useDispatch } from 'react-redux'
 import CardList from '../../components/CardList/CardList'
 import { CardListProps } from '../../types'
 import { Container, Pagination } from 'semantic-ui-react'
 
 const UserList: React.FC<CardListProps> = () => {
+	const dispatch = useDispatch()
+
 	useFetch(getUsers)
-	const users = useSelector((state: any) => state.user.users)
+
+	const data = useSelector((state: any) => {
+		return {
+			users: state.user.users,
+			page: state.user.page,
+		}
+	})
+	const { users, page } = data
+
+	const onPaginationChange = (e: any, { activePage }: any) => {
+		dispatch(setPage({ page: activePage }))
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		})
+	}
 
 	return (
 		<>
@@ -20,15 +38,12 @@ const UserList: React.FC<CardListProps> = () => {
 					minHeight: '70vh',
 				}}
 			>
-				<CardList users={users} />
+				<CardList users={users[page]} />
 			</Container>
 			<Pagination
-				defaultActivePage={1}
-				firstItem={null}
-				lastItem={null}
-				pointing
-				secondary
-				totalPages={3}
+				activePage={page}
+				onPageChange={onPaginationChange}
+				totalPages={5}
 				style={{ marginTop: '25px' }}
 			/>
 		</>

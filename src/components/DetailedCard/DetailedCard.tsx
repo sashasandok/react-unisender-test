@@ -9,7 +9,7 @@ const DetailedCard: React.FC<DetailedCardProps> = (props) => {
 			{props.user && (
 				<div className="detailed-user">
 					<img src={props.user.avatarUrl} alt="" />
-					<div className="user-info">
+					<div className="user-detailed-info">
 						<p className="user-name">{props.user.name}</p>
 						<p className="user-location">{props.user.location}</p>
 						<p className="user-date">

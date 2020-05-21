@@ -15,7 +15,7 @@ img {
 	margin-right: 40px;
 }
 
-.user-info {
+.user-detailed-info {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -30,6 +30,7 @@ img {
 	width: 100%;
 	text-align: left;
 	margin-bottom: 10px;
+	color: #000000;
 }
 
 .user-location {
@@ -40,6 +41,7 @@ img {
 	line-height: 20px;
 	width: 100%;
 	text-align: left;
+	color: #000000;
 }
 
 .user-date {

@@ -14,18 +14,13 @@ const Card: React.FC<UserData> = (props) => {
 	return (
 		<div key={props.id} className="card-layout">
 			<div className="card-content">
-				<a
-					rel="noopener norefferer"
-					target="_blank"
-					href={props.htmlUrl}
-					className="user-info"
-				>
+				<Link className="user-info" to={`/users/${props.login}`}>
 					<img src={props.avatarUrl} alt="" className="user-image" />
 					<p>{props.login}</p>
-				</a>
-				<Link to={`/users/${props.login}`}>
-					<Button content="User Info" basic />
 				</Link>
+				<a rel="noopener norefferer" target="blank" href={props.htmlUrl}>
+					<Button content="User Link" basic />
+				</a>
 			</div>
 			<Divider />
 		</div>
