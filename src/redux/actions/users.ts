@@ -18,6 +18,7 @@ const actions = createActions<any>({
 		error: (x) => x,
 	},
 	setPage: (x) => x,
+	setUser: (x) => x,
 }) as any
 
 export default actions
@@ -61,4 +62,8 @@ export const getUserByName = (name: string) => async (dispatch: any) => {
 
 export const setPage = ({ page }: any) => async (dispatch: any) => {
 	dispatch(actions.setPage({ page }))
+}
+
+export const setUser = (data: any) => async (dispatch: any) => {
+	dispatch(actions.setUser({ user: data }))
 }

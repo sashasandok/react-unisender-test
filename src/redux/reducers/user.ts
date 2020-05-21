@@ -64,6 +64,11 @@ export default handleActions<any>(
 				error: payload.error,
 			}
 		},
+
+		[actions.setUser]: (state, { payload }) => ({
+			...state,
+			user: payload.user,
+		}),
 	},
 	initialState,
 )
