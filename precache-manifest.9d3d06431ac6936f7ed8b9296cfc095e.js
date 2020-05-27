@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72cfb4640e91dd2fb62b1eed77f7dad7",
+    "revision": "87c49e025a09ce39f52a7fcf310ed269",
     "url": "/react-unisender-test/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-unisender-test/static/css/2.699f2878.chunk.css"
   },
   {
-    "revision": "d472184dd485a262f143",
+    "revision": "e062fb219e23c3bb39ce",
     "url": "/react-unisender-test/static/css/main.e077c77c.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-unisender-test/static/js/2.d73aa692.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d472184dd485a262f143",
-    "url": "/react-unisender-test/static/js/main.cf28b214.chunk.js"
+    "revision": "e062fb219e23c3bb39ce",
+    "url": "/react-unisender-test/static/js/main.c8b58607.chunk.js"
   },
   {
     "revision": "5ef18a4560a83b4af4af",
